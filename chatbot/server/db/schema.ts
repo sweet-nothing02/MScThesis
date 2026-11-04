@@ -7,12 +7,16 @@ const timestamps = {
 
 export const users = sqliteTable('users', {
   id: text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
-  email: text('email').notNull(),
+  email: text('email').notNull().default(''),
   name: text('name').notNull(),
-  avatar: text('avatar').notNull(),
+  avatar: text('avatar').notNull().default(''),
   username: text('username').notNull(),
-  provider: text('provider', { enum: ['github'] }).notNull(),
+  provider: text('provider', { enum: ['github', 'neptun', 'instructor'] }).notNull(),
   providerId: text('provider_id').notNull(),
+  role: text('role', { enum: ['student', 'instructor'] }).notNull().default('student'),
+  neptunCode: text('neptun_code'),
+  consentGiven: integer('consent_given', { mode: 'boolean' }).notNull().default(false),
+  consentGivenAt: integer('consent_given_at', { mode: 'timestamp' }),
   ...timestamps
 }, table => [
   uniqueIndex('users_provider_id_idx').on(table.provider, table.providerId)

@@ -161,12 +161,12 @@ defineShortcuts({
         <UserMenu v-if="loggedIn" :collapsed="collapsed" />
         <UButton
           v-else
-          :label="collapsed ? '' : 'Login with GitHub'"
-          icon="i-simple-icons-github"
+          :label="collapsed ? '' : 'Log In'"
+          icon="i-lucide-log-in"
           color="neutral"
           variant="ghost"
           class="w-full"
-          @click="openInPopup('/auth/github')"
+          to="/login"
         />
       </template>
     </UDashboardSidebar>

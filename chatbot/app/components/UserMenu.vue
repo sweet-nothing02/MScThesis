@@ -16,7 +16,7 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
   type: 'label',
   label: user.value?.name || user.value?.username,
   avatar: {
-    src: user.value?.avatar,
+    src: user.value?.avatar || undefined,
     alt: user.value?.name || user.value?.username
   }
 }], [{
@@ -91,63 +91,11 @@ const items = computed<DropdownMenuItem[][]>(() => ([[{
     }
   }]
 }], [{
-  label: 'Templates',
-  icon: 'i-lucide-layout-template',
-  children: [{
-    label: 'Starter',
-    to: 'https://starter-template.nuxt.dev/'
-  }, {
-    label: 'Landing',
-    to: 'https://landing-template.nuxt.dev/'
-  }, {
-    label: 'Docs',
-    to: 'https://docs-template.nuxt.dev/'
-  }, {
-    label: 'SaaS',
-    to: 'https://saas-template.nuxt.dev/'
-  }, {
-    label: 'Dashboard',
-    to: 'https://dashboard-template.nuxt.dev/'
-  }, {
-    label: 'Chat',
-    to: 'https://chat-template.nuxt.dev/',
-    color: 'primary',
-    checked: true,
-    type: 'checkbox'
-  }, {
-    label: 'Portfolio',
-    to: 'https://portfolio-template.nuxt.dev/'
-  }, {
-    label: 'Changelog',
-    to: 'https://changelog-template.nuxt.dev/'
-  }, {
-    label: 'Editor',
-    to: 'https://editor-template.nuxt.dev/'
-  }, {
-    label: 'Calendar',
-    to: 'https://calendar-template.nuxt.dev/'
-  }]
-}], [{
-  label: 'Documentation',
-  icon: 'i-lucide-book-open',
-  to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
-  target: '_blank'
-}, {
-  label: 'GitHub repository',
-  icon: 'i-simple-icons-github',
-  to: 'https://github.com/nuxt-ui-templates/chat',
-  target: '_blank'
-}, {
-  label: 'Deploy to Vercel',
-  icon: 'i-simple-icons-vercel',
-  to: 'https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fchat&repository-name=chat&env=NUXT_OAUTH_GITHUB_CLIENT_ID%2CNUXT_OAUTH_GITHUB_CLIENT_SECRET%2CNUXT_SESSION_PASSWORD&stores=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22tursocloud%22%2C%22productSlug%22%3A%22database%22%2C%22protocol%22%3A%22storage%22%7D%2C%7B%22type%22%3A%22blob%22%7D%5D&demo-title=Nuxt+Chat+Template&demo-description=An+AI+chatbot+template+with+GitHub+authentication+and+persistent+chat+history+powered+by+Vercel+AI+SDK.&demo-url=https%3A%2F%2Fchat-template.nuxt.dev&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fchat-dark.png',
-  target: '_blank'
-}], [{
   label: 'Log out',
   icon: 'i-lucide-log-out',
   onSelect() {
     clear()
-    navigateTo('/')
+    navigateTo('/login')
   }
 }]]))
 </script>
