@@ -17,6 +17,8 @@
     "@ai-sdk/google": "^4.0.105",
     "@ai-sdk/openai": "^4.0.102",
     "@ai-sdk/vue": "^4.0.153",
+    "@codemirror/lang-cpp": "^6.0.3",
+    "@codemirror/theme-one-dark": "^6.1.3",
     "@comark/nuxt": "^0.8.1",
     "@iconify-json/logos": "^1.2.17",
     "@iconify-json/lucide": "^1.2.147",
@@ -29,6 +31,7 @@
     "@vercel/blob": "^2.8.2",
     "@vueuse/core": "^14.4.0",
     "ai": "^7.0.153",
+    "codemirror": "^6.0.2",
     "date-fns": "^4.4.0",
     "drizzle-orm": "^0.45.4",
     "motion-v": "^2.8.0",
@@ -38,6 +41,7 @@
     "shiki": "^4.5.0",
     "striptags": "3.2.0",
     "tailwindcss": "^4.3.3",
+    "vue-codemirror": "^6.1.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {

@@ -79,3 +79,16 @@ export const votesRelations = relations(votes, ({ one }) => ({
     references: [messages.id]
   })
 }))
+
+export const testRuns = sqliteTable('test_runs', {
+  id: text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
+  userId: text('user_id').notNull().references(() => users.id),
+  chatId: text('chat_id'),
+  timestamp: integer('timestamp', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
+  code: text('code').notNull(),
+  compileSuccess: integer('compile_success', { mode: 'boolean' }).notNull(),
+  compilerOutput: text('compiler_output'),
+  testsPassed: integer('tests_passed').notNull(),
+  testsTotal: integer('tests_total').notNull(),
+  testDetails: text('test_details', { mode: 'json' })
+})
